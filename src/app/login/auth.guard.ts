@@ -10,9 +10,9 @@ export class AuthGuard implements CanActivate {
     Observable<boolean>
     | Promise<boolean>
     | boolean {
-    const user = localStorage.getItem('currentUser') == null ? {
+    const user = localStorage.getItem('currentUser') == null ? JSON.stringify({
       roles: 'USER'
-    } : localStorage.getItem('currentUser');
-    return JSON.parse(JSON.stringify(user)).roles.indexOf(ADMIN) !== -1;
+    }) : localStorage.getItem('currentUser');
+    return JSON.parse(user).roles.indexOf(ADMIN) !== -1;
   }
 }
