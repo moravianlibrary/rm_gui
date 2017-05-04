@@ -25,7 +25,6 @@ export class LibrariesService {
   }
 
   private handleError (error: Response) {
-    console.log(error);
     const status = error.status;
     const message = error.statusText;
 
